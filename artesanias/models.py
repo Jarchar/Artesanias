@@ -23,7 +23,7 @@ class Artesania(models.Model):
     titulo=models.CharField(max_length=15)
     artesano = models.ForeignKey(Artesano, on_delete=models.CASCADE)
     descripcion=models.CharField(max_length=500)
-    precio=models.DecimalField(...,max_digits=5, decimal_places=2)
+    precio=models.DecimalField(max_digits=5, decimal_places=2, default=0.00)
     categoria=(
         ('TM', 'Talla de Madera'),
         ('CE','Cerámica'),

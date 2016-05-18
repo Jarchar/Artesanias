@@ -14,7 +14,7 @@ class Artesano(models.Model):
         return self.user.username
 
 class Telefono(models.Model):
-    Telefono = models.CharField(max_length=100)
+    telefono = models.CharField(max_length=100)
     telefonos = models.ForeignKey(Artesano, on_delete=models.CASCADE)
     def __str__(self):
         return self.Telefono

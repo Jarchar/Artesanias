@@ -24,7 +24,7 @@ class Artesania(models.Model):
     artesano = models.ForeignKey(Artesano, on_delete=models.CASCADE)
     descripcion=models.CharField(max_length=500)
     precio=models.DecimalField(max_digits=5, decimal_places=2, default=0.00)
-    categoria=(
+    CATEGORIA_CHOICES=(
         ('TM', 'Talla de Madera'),
         ('CE','Cerámica'),
         ('TJ','Tejido'),
@@ -32,6 +32,7 @@ class Artesania(models.Model):
         ('OR','Orfebrería'),
 
     )
+    categoria=models.CharField(max_length=2,choices=CATEGORIA_CHOICES, default='OR')
     def __str__(self):
         return self.titulo
 

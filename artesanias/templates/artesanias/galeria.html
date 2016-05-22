@@ -1,0 +1,10 @@
+{% block content %}
+    <h2>Artesanias</h2>
+    <ul>
+        {% for artesnia in object_list %}
+        <i>{{ artesnia.titulo }}</i>
+        <i>{{ artesnia.descripcion }}</i>
+        <i>{{ artesnia.precio }}</i>
+    </ul>
+{% endblock %}
+

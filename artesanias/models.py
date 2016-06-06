@@ -1,4 +1,6 @@
 from django.db import models
+
+from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 # Create your models here.
 class Artesano(models.Model):
@@ -22,6 +24,7 @@ class Telefono(models.Model):
 class Artesania(models.Model):
     titulo=models.CharField(max_length=15)
     artesano = models.ForeignKey(Artesano, on_delete=models.CASCADE)
+    imagen = models.ImageField(upload_to='imagenes/%Y/%m/%d/')
     descripcion=models.CharField(max_length=500)
     precio=models.DecimalField(max_digits=5, decimal_places=2, default=0.00)
     CATEGORIA_CHOICES=(
@@ -35,6 +38,8 @@ class Artesania(models.Model):
     categoria=models.CharField(max_length=2,choices=CATEGORIA_CHOICES, default='OR')
     def __str__(self):
         return self.titulo
+    def get_absolute_url(self):
+        return reverse('artesanias:artesania-detalle',kwargs={'pk': self.pk})
 
 
 class Cliente(models.Model):

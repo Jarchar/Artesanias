@@ -5,11 +5,12 @@ from django.views.generic import DetailView, ListView, CreateView
 # Create your views here.
 class ArtesaniaList(ListView):
     model = Artesania
+    fields =['titulo','artesano', 'descripcion', 'imagen','precio']
     template_name = 'artesanias/galeria.html'
 
 class ArtesaniaCrear(CreateView):
     model = Artesania
-    fields =['titulo', 'artesano','descripcion', 'precio', 'categoria']
+    fields =['titulo','artesano', 'descripcion', 'imagen','precio']
     template_name='artesanias/registro.html'
 
 class ArtesaniaDetalle(DetailView):

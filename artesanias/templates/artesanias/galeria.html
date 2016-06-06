@@ -1,10 +1,26 @@
+{% extends "artesanias/base.html" %}
+{% load crispy_forms_tags %}
 {% block content %}
     <h2>Artesanias</h2>
-    <ul>
-        {% for artesnia in object_list %}
-        <i>{{ artesnia.titulo }}</i>
-        <i>{{ artesnia.descripcion }}</i>
-        <i>{{ artesnia.precio }}</i>
-    </ul>
+        {% for aretesania in object_list %}
+<div class="container">
+				<div class="row text-center inner">
+					<div class="col-sm-6">
+						<div class="blog-content">
+        <a href= "{{ aretesania.get_absolute_url }}"><h1>{{ aretesania.titulo }}</h1></a>
+        {% if aretesania.image %}
+            <img src="{{ aretesania.imagen.url }}" alt="Artesania" style="width:auto;height:2;">
+        {% endif %}
+        <p>{{ aretesania.artesano }}</p>
+        <p>{{ aretesania.descripcion }}</p>
+        <p>{{ aretesania.precio }}</p>
+</div>
+</div>
+</div>
+</div>
+{% empty %}
+    <li>No articles yet.</li>
+{% endfor %}
+
 {% endblock %}
 

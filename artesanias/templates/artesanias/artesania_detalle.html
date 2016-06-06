@@ -1,0 +1,21 @@
+{% extends "artesanias/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<section id="blog-area">
+    <div class="container">
+        <div class="row text-center inner">
+            <div class="col-sm-6">
+                <div class="blog-content">
+<h2>{{ object.titulo }}</h2>
+        {% if aretesania.image %}
+<img src="{{ object.imagen.url }}" alt="Artesania" style="width:auto;height:2;">
+        {% endif %}
+<p>{{ object.artesano }}</p>
+<p>${{ object.precio }}</p>
+<p>{{ object.categoria }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
